@@ -33,7 +33,7 @@ class PayPalTest extends TestCase
 	{
 		// Prepare
 
-		$user = factory('App\User')->create(['password' => Hash::make('laravel-shop')]);
+		$user = factory('App\Models\User')->create(['password' => Hash::make('laravel-shop')]);
 
 		$bool = Auth::attempt(['email' => $user->email, 'password' => 'laravel-shop']);
 
@@ -53,7 +53,7 @@ class PayPalTest extends TestCase
 	{
 		// Prepare
 
-		$user = factory('App\User')->create(['password' => Hash::make('laravel-shop')]);
+		$user = factory('App\Models\User')->create(['password' => Hash::make('laravel-shop')]);
 
 		$bool = Auth::attempt(['email' => $user->email, 'password' => 'laravel-shop']);
 
@@ -109,11 +109,11 @@ class PayPalTest extends TestCase
 	{
 		// Prepare
 
-		$user = factory('App\User')->create(['password' => Hash::make('laravel-shop')]);
+		$user = factory('App\Models\User')->create(['password' => Hash::make('laravel-shop')]);
 
 		Auth::attempt(['email' => $user->email, 'password' => 'laravel-shop']);
 
-	    $cart = App\Cart::current();
+	    $cart = App\Models\Cart::current();
 
 	    $products = [];
 
@@ -164,11 +164,11 @@ class PayPalTest extends TestCase
 	{
 		// Prepare
 
-		$user = factory('App\User')->create(['password' => Hash::make('laravel-shop')]);
+		$user = factory('App\Models\User')->create(['password' => Hash::make('laravel-shop')]);
 
 		Auth::attempt(['email' => $user->email, 'password' => 'laravel-shop']);
 
-	    $cart = App\Cart::current();
+	    $cart = App\Models\Cart::current();
 
 	    $product = $product = App\TestProduct::create([
 			'price'			=> 0.99,
@@ -209,11 +209,11 @@ class PayPalTest extends TestCase
 	 */
 	public function testOrderTotalZero()
 	{
-		$user = factory('App\User')->create(['password' => Hash::make('laravel-shop')]);
+		$user = factory('App\Models\User')->create(['password' => Hash::make('laravel-shop')]);
 
 		Auth::attempt(['email' => $user->email, 'password' => 'laravel-shop']);
 
-	    $cart = App\Cart::current();
+	    $cart = App\Models\Cart::current();
 
 		$cart->add([
 			'sku'	=> 'ZERO0000',
@@ -246,11 +246,11 @@ class PayPalTest extends TestCase
 	 */
 	public function testVariedOrderTotal()
 	{
-		$user = factory('App\User')->create(['password' => Hash::make('laravel-shop')]);
+		$user = factory('App\Models\User')->create(['password' => Hash::make('laravel-shop')]);
 
 		Auth::attempt(['email' => $user->email, 'password' => 'laravel-shop']);
 
-	    $cart = App\Cart::current();
+	    $cart = App\Models\Cart::current();
 
 		$cart->add([
 			'sku'	=> 'ZERO0000',
